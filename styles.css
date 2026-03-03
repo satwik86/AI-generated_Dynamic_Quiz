@@ -1,0 +1,198 @@
+/* Custom Properties for easy color management */
+:root {
+  --primary: #ffcc00;
+  --bg-dark: #607ab6;
+  --card-bg: rgba(30, 41, 59, 0.85); /* Slightly more opaque for readability */
+  --text-main: #f8fafc;
+  --accent: #6366f1;
+  --success: #22c55e;
+  --error: #ef4444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top left, #7770d5, #853d91);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px; /* Adjusted for better focus */
+  padding: 40px;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  
+  /* CRITICAL FIX: Grow with content */
+  height: auto; 
+  min-height: 600px; 
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+  color: var(--primary);
+}
+
+/* --- TIMER BAR STYLING --- */
+.timer-wrapper {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+#timer-bar {
+  height: 100%;
+  width: 100%;
+  background: var(--primary);
+  transition: width 1s linear;
+}
+
+#timer-text {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+/* Setup Form Styling */
+#setup-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 14px;
+  background: rgba(15, 23, 42, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: white;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+
+.settings-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 20px;
+}
+
+/* Quiz Content Styling */
+#question-text {
+  font-size: 2.1rem;
+  line-height: 1.4;
+  margin-bottom: 30px;
+  color: white;
+}
+
+/* FIX: Option Buttons (Replaces clumsy List items) */
+#choices-list {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 12px;
+  margin-bottom: 20px;
+  list-style: none; /* Removes bullets */
+}
+
+/* Styling the buttons inside the list */
+.choice-btn {
+  background: rgba(102, 73, 73, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.9rem;
+  color: white;
+  text-align: left;
+  transition: all 0.2s ease;
+  width: 100%;
+  display: block;
+}
+
+.choice-btn:hover {
+  background: rgba(17, 15, 15, 0.15);
+  transform: translateX(8px);
+  border-color: var(--primary);
+}
+
+/* Feedback Colors */
+.correct { background: var(--success) !important; border-color: var(--success); }
+.wrong { background: var(--error) !important; border-color: var(--error); }
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 16px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(1.2);
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Results */
+#score {
+  font-size: 3.5rem;
+  color: var(--primary);
+  margin: 15px 0;
+}
+
+.hidden { display: none !important; }
+
+/* SPINNER */
+.spinner {
+    border: 4px solid rgba(255,255,255,0.1);
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }

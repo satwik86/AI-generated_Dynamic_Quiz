@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Dynamic Quiz Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h1>AI Quiz Generator</h1>
+        
+        <div id="quiz-container">
+            <div id="setup-container">
+                <div class="input-group">
+                    <label for="topic-input">What do you want to be quizzed on?</label>
+                    <input type="text" id="topic-input" placeholder="e.g. JavaScript, Ancient Egypt, Space Exploration">
+                </div>
+
+                <div class="settings-row">
+                    <div class="input-group">
+                        <label for="difficulty-input">Difficulty</label>
+                        <select id="difficulty-input">
+                            <option value="basic">Basic (Beginner)</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced (Expert)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="count-input">Questions</label>
+                        <select id="count-input">
+                            <option value="5">5 Questions</option>
+                            <option value="10">10 Questions</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button id="start-btn">Generate & Start Quiz</button>
+            </div>
+
+            <div id="loading-container" class="hidden">
+                <p>AI is generating your custom quiz... 🧠</p>
+                <div class="spinner"></div>
+            </div>
+
+            <div id="question-container" class="hidden">
+                <div class="timer-wrapper">
+                    <div id="timer-bar"></div>
+                </div>
+                <span id="timer-text">15s</span>
+                
+                <h2 id="question-text"></h2>
+                
+                <div id="choices-list"></div> 
+                
+                <button id="next-btn" class="hidden">Next Question</button>
+            </div>
+
+            <div id="result-container" class="hidden">
+                <h2>Your Score:</h2>
+                <p id="score">0 out of 0</p> <button id="restart-btn">Try a New Topic</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
